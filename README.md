@@ -1,129 +1,142 @@
-<p align="center">
-  <a href="https://opencode.ai">
-    <picture>
-      <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
-      <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
-      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="OpenCode logo">
-    </picture>
-  </a>
-</p>
-<p align="center">The open source AI coding agent.</p>
-<p align="center">
-  <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
-  <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
-  <a href="https://github.com/anomalyco/opencode/actions/workflows/publish.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/anomalyco/opencode/publish.yml?style=flat-square&branch=dev" /></a>
-</p>
+# Cipher
 
-<p align="center">
-  <a href="README.md">English</a> |
-  <a href="README.zh.md">简体中文</a> |
-  <a href="README.zht.md">繁體中文</a> |
-  <a href="README.ko.md">한국어</a> |
-  <a href="README.de.md">Deutsch</a> |
-  <a href="README.es.md">Español</a> |
-  <a href="README.fr.md">Français</a> |
-  <a href="README.it.md">Italiano</a> |
-  <a href="README.da.md">Dansk</a> |
-  <a href="README.ja.md">日本語</a> |
-  <a href="README.pl.md">Polski</a> |
-  <a href="README.ru.md">Русский</a> |
-  <a href="README.bs.md">Bosanski</a> |
-  <a href="README.ar.md">العربية</a> |
-  <a href="README.no.md">Norsk</a> |
-  <a href="README.br.md">Português (Brasil)</a> |
-  <a href="README.th.md">ไทย</a> |
-  <a href="README.tr.md">Türkçe</a> |
-  <a href="README.uk.md">Українська</a> |
-  <a href="README.bn.md">বাংলা</a> |
-  <a href="README.gr.md">Ελληνικά</a> |
-  <a href="README.vi.md">Tiếng Việt</a>
-</p>
+The open source AI coding agent harness — forked from [opencode](https://github.com/anomalyco/opencode).
 
-[![OpenCode Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
+Terminal-native, provider-agnostic, with **329+ sub-agents** and **13 skill categories**.
 
 ---
 
-### Installation
+## Quick Start (New System)
+
+### Prerequisites
+
+- [Bun](https://bun.sh) v1.3+ (`powershell -ExecutionPolicy Bypass -c "npm install -g bun"`)
+- Git
+- Node.js 22+
+
+### Setup from Source
 
 ```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
+# 1. Clone
+git clone https://github.com/srinath200888-create/Cipher.git
+cd Cipher
 
-# Package managers
-npm i -g opencode-ai@latest        # or bun/pnpm/yarn
-scoop install opencode             # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS and Linux (recommended, always up to date)
-brew install opencode              # macOS and Linux (official brew formula, updated less)
-sudo pacman -S opencode            # Arch Linux (Stable)
-paru -S opencode-bin               # Arch Linux (Latest from AUR)
-mise use -g opencode               # Any OS
-nix run nixpkgs#opencode           # or github:anomalyco/opencode for latest dev branch
+# 2. Install deps (skip native modules that fail on Windows)
+bun install --ignore-scripts
 ```
 
-> [!TIP]
-> Remove versions older than 0.1.x before installing.
-
-### Desktop App (BETA)
-
-OpenCode is also available as a desktop application. Download directly from the [releases page](https://github.com/anomalyco/opencode/releases) or [opencode.ai/download](https://opencode.ai/download).
-
-| Platform              | Download                           |
-| --------------------- | ---------------------------------- |
-| macOS (Apple Silicon) | `opencode-desktop-mac-arm64.dmg`   |
-| macOS (Intel)         | `opencode-desktop-mac-x64.dmg`     |
-| Windows               | `opencode-desktop-windows-x64.exe` |
-| Linux                 | `.deb`, `.rpm`, or `.AppImage`     |
+### Run in Dev Mode
 
 ```bash
-# macOS (Homebrew)
-brew install --cask opencode-desktop
-# Windows (Scoop)
-scoop bucket add extras; scoop install extras/opencode-desktop
+cd packages/cipher
+bun run dev
 ```
 
-#### Installation Directory
+This launches the TUI (terminal UI). Type your prompt and hit Enter.
 
-The install script respects the following priority order for the installation path:
+### Build Binary (optional)
 
-1. `$CIPHER_INSTALL_DIR` - Custom installation directory
-2. `$XDG_BIN_DIR` - XDG Base Directory Specification compliant path
-3. `$HOME/bin` - Standard user binary directory (if it exists or can be created)
-4. `$HOME/.cipher/bin` - Default fallback
-
-```bash
-# Examples
-CIPHER_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
+```powershell
+cd packages\cipher
+bun run build
 ```
 
-### Agents
+Then use `node bin\cipher` from that directory.
 
-OpenCode includes two built-in agents you can switch between with the `Tab` key.
+### Link Globally
 
-- **build** - Default, full-access agent for development work
-- **plan** - Read-only agent for analysis and code exploration
-  - Denies file edits by default
-  - Asks permission before running bash commands
-  - Ideal for exploring unfamiliar codebases or planning changes
-
-Also included is a **general** subagent for complex searches and multistep tasks.
-This is used internally and can be invoked using `@general` in messages.
-
-Learn more about [agents](https://opencode.ai/docs/agents).
-
-### Documentation
-
-For more info on how to configure OpenCode, [**head over to our docs**](https://opencode.ai/docs).
-
-### Contributing
-
-If you're interested in contributing to OpenCode, please read our [contributing docs](./CONTRIBUTING.md) before submitting a pull request.
-
-### Building on OpenCode
-
-If you are working on a project that's related to OpenCode and is using "opencode" as part of its name, for example "opencode-dashboard" or "opencode-mobile", please add a note to your README to clarify that it is not built by the OpenCode team and is not affiliated with us in any way.
+```powershell
+cd packages\cipher
+npm link
+# or
+bun link
+cipher --help
+```
 
 ---
 
-**Join our community** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+## Architecture
+
+```
+.cipher/
+├── skills/              # 13 skill categories
+│   ├── cli-coding-agents/
+│   ├── ai-coding-tools/
+│   ├── ai-ides-assistants/
+│   ├── ai-models-providers/
+│   ├── devops-cloud-ai/
+│   ├── code-review-quality/
+│   ├── database-backend-ai/
+│   ├── frontend-ui-ai/
+│   ├── security-testing-ai/
+│   ├── local-privacy-ai/
+│   ├── multi-agent-orchestration/
+│   ├── vim-neovim-ai/
+│   └── agent-skills-development/
+├── agents/
+│   ├── registry.json     # 329 agents across 20 categories
+│   ├── hermes-agent.json
+│   ├── claw-code.json
+│   ├── aider.json
+│   ├── cline.json
+│   ├── openhands.json
+│   ├── goose.json
+│   ├── qwen-code.json
+│   ├── deepseek-tui.json
+│   ├── plandex.json
+│   └── ... (37 total agent files)
+└── cipher.jsonc          # Master config
+```
+
+### 3 Built-in Agents
+
+| Agent | Description |
+|-------|-------------|
+| **build** | Full-access agent for development |
+| **plan** | Read-only agent for analysis |
+| **general** | Subagent for complex multi-step tasks |
+
+---
+
+## Skills (13 Categories)
+
+| Skill | Covers |
+|-------|--------|
+| CLI Coding Agents | Aider, Codex, Claude Code, Gemini CLI, Hermes, ClawCode |
+| AI Coding Tools | Cursor, Windsurf, Copilot, Continue, Cline |
+| IDEs & Assistants | VS Code, JetBrains, Neovim, Zed, PearAI |
+| Models & Providers | OpenAI, Anthropic, Google, DeepSeek, Qwen, Ollama |
+| DevOps & Cloud | Pulumi, Datadog, Harness, Spacelift, AWS CDK |
+| Code Review | CodeRabbit, Qodo, Sourcery, Semgrep, Codacy |
+| Database & Backend | Supabase, Hasura, Drizzle, Prisma, PostgreSQL |
+| Frontend & UI | v0.dev, Bolt.new, Lovable, Tailwind, GSAP |
+| Security & Testing | Snyk, Playwright, Meticulous, OctoMind |
+| Local & Privacy | Ollama, LM Studio, Twinny, Tabby, NanoCoder |
+| Multi-Agent Orchestration | Claude Code Teams, OpenHands, Orca, Emdash |
+| Vim/Neovim | Copilot.vim, opencode.nvim, AstrBot |
+| Agent Skills Dev | MCP servers, Skill creation, Plugin architecture |
+
+---
+
+## Providers
+
+Cipher supports **75+ LLM providers** including:
+
+- OpenAI (GPT-4o, GPT-5)
+- Anthropic (Claude Opus 4.5, Sonnet)
+- Google (Gemini 2.5 Pro, Gemini 3 Pro)
+- DeepSeek, Qwen, Mistral, xAI Grok
+- Local via Ollama, LM Studio, llama.cpp
+
+---
+
+## Desktop
+
+Double-click `Cipher.bat` on your desktop to see the logo.
+
+---
+
+## Learn More
+
+- [Docs](https://opencode.ai/docs) (Cipher shares the opencode docs format)
+- [GitHub](https://github.com/srinath200888-create/Cipher)
