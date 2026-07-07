@@ -1,0 +1,26 @@
+{
+  "name": "ai-models-providers",
+  "description": "Expertise across AI models, LLM providers, and model orchestration for coding",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "multi-model orchestration",
+      "provider switching",
+      "local model deployment",
+      "API integration",
+      "model benchmarking"
+    ],
+    "providers": [
+      "OpenAI GPT/GPT-5",
+      "Anthropic Claude Opus/Sonnet",
+      "Google Gemini",
+      "DeepSeek Coder",
+      "Qwen Coder",
+      "Mistral",
+      "xAI Grok",
+      "Ollama local models",
+      "LM Studio",
+      "llama.cpp"
+    ]
+  }
+}

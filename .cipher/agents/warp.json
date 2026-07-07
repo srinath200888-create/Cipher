@@ -1,0 +1,7 @@
+{
+  "name": "warp",
+  "description": "AI-enhanced terminal with smart suggestions",
+  "version": "1.0.0",
+  "capabilities": ["smart suggestions", "AI command generation", "workflow automation", "terminal enhancement"],
+  "context": "Modern terminal with built-in AI features for command generation and workflow automation"
+}

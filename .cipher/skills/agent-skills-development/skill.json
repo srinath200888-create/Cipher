@@ -1,0 +1,21 @@
+{
+  "name": "agent-skills-development",
+  "description": "Creating, packaging, and distributing custom skills for AI coding agents",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "skill creation",
+      "skill packaging",
+      "MCP server development",
+      "plugin architecture",
+      "skill marketplace"
+    ],
+    "platforms": [
+      "GitHub Copilot Skills",
+      "Claude Code Skills",
+      "OpenCode Skills",
+      "Cline MCP",
+      "Continue MCP"
+    ]
+  }
+}

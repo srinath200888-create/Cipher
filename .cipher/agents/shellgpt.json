@@ -1,0 +1,7 @@
+{
+  "name": "shellgpt",
+  "description": "ChatGPT integration for shell commands",
+  "version": "1.0.0",
+  "capabilities": ["shell command generation", "ChatGPT integration", "command explanation", "script generation"],
+  "context": "Command-line tool that integrates ChatGPT for natural language to shell command translation"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "mentat",
+  "description": "AI coding assistant for command-line",
+  "version": "1.0.0",
+  "capabilities": ["multi-file editing", "code generation", "refactoring", "terminal integration"],
+  "context": "Command-line AI coding assistant for editing and generating code across multiple files"
+}

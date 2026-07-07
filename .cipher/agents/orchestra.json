@@ -1,0 +1,7 @@
+{
+  "name": "orchestra",
+  "description": "Multi-agent workflow orchestration",
+  "version": "1.0.0",
+  "capabilities": ["workflow orchestration", "agent coordination", "pipeline management", "task sequencing"],
+  "context": "Orchestrator for coordinating multiple agents in complex multi-step workflows"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "void-editor",
+  "description": "Open-source AI editor",
+  "version": "1.0.0",
+  "capabilities": ["open source", "AI integration", "lightweight editor", "extensible"],
+  "context": "Open-source AI-native code editor with extensible plugin architecture"
+}

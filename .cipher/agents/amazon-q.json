@@ -1,0 +1,7 @@
+{
+  "name": "amazon-q",
+  "description": "Amazon Q Developer CLI for AWS workflows",
+  "version": "1.0.0",
+  "capabilities": ["AWS integration", "infrastructure as code", "cloud debugging", "IaC generation"],
+  "context": "AWS-focused CLI agent for building, debugging, and deploying cloud applications"
+}

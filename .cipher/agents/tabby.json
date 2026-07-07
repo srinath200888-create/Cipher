@@ -1,0 +1,7 @@
+{
+  "name": "tabby",
+  "description": "Self-hosted AI coding assistant",
+  "version": "1.0.0",
+  "capabilities": ["self-hosted", "local model inference", "code completion", "privacy-first"],
+  "context": "Self-hosted AI coding assistant with local model inference and privacy-first architecture"
+}

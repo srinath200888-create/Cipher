@@ -1,0 +1,7 @@
+{
+  "name": "pi-agent",
+  "description": "oh-my-pi hash-anchored editing agent",
+  "version": "1.0.0",
+  "capabilities": ["hash-anchored edits", "deterministic editing", "reproducible builds", "file integrity"],
+  "context": "Editing agent using hash-anchored content addressing for deterministic file modifications"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "windsurf",
+  "description": "Agentic IDE with Agent Command Center",
+  "version": "1.0.0",
+  "capabilities": ["Agent Command Center", "cascade mode", "multi-agent", "codebase indexing", "inline editing"],
+  "context": "Agentic IDE with centralized agent command center and cascade workflow capabilities"
+}

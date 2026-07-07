@@ -1,0 +1,7 @@
+{
+  "name": "coderabbit",
+  "description": "AI-powered code review automation",
+  "version": "1.0.0",
+  "capabilities": ["automated code review", "PR analysis", "inline comments", "best practices enforcement"],
+  "context": "AI code review agent that analyzes pull requests and provides detailed feedback"
+}

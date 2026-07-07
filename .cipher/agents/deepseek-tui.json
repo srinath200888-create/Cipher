@@ -1,0 +1,7 @@
+{
+  "name": "deepseek-tui",
+  "description": "DeepSeek-native TUI coding agent",
+  "version": "1.0.0",
+  "capabilities": ["terminal UI", "code generation", "DeepSeek integration", "multi-file editing"],
+  "context": "Terminal-based agent optimized for DeepSeek models with rich TUI interface"
+}

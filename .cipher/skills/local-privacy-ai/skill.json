@@ -1,0 +1,23 @@
+{
+  "name": "local-privacy-ai",
+  "description": "Local-first, privacy-preserving AI coding tools and offline-capable development",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "local model inference",
+      "offline development",
+      "privacy-first architecture",
+      "air-gapped deployment",
+      "data sovereignty"
+    ],
+    "tools": [
+      "Ollama",
+      "LM Studio",
+      "llama.cpp",
+      "Twinny",
+      "FauxPilot",
+      "Tabby",
+      "NanoCoder"
+    ]
+  }
+}

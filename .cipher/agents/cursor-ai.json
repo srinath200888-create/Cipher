@@ -1,0 +1,7 @@
+{
+  "name": "cursor-ai",
+  "description": "AI-first IDE with powerful agent mode",
+  "version": "1.0.0",
+  "capabilities": ["agent mode", "multi-file editing", "codebase indexing", "inline AI", "terminal AI"],
+  "context": "AI-first code editor with deep IDE integration, agent mode, and comprehensive codebase understanding"
+}

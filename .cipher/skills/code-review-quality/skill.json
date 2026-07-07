@@ -1,0 +1,22 @@
+{
+  "name": "code-review-quality",
+  "description": "AI-powered code review, static analysis, quality gates, and best practices enforcement",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "automated code review",
+      "static analysis",
+      "style enforcement",
+      "security scanning",
+      "performance profiling"
+    ],
+    "tools": [
+      "CodeRabbit",
+      "Codacy",
+      "SonarQube AI",
+      "Qodo",
+      "DeepSource",
+      "Snyk AI"
+    ]
+  }
+}

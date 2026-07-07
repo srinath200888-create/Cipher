@@ -1,0 +1,7 @@
+{
+  "name": "superset",
+  "description": "Run army of coding agents on your machine",
+  "version": "1.0.0",
+  "capabilities": ["massive parallelization", "local agent army", "task queuing", "resource management"],
+  "context": "Run a large number of coding agents in parallel on local hardware for massive task throughput"
+}

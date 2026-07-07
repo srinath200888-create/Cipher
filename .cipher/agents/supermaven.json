@@ -1,0 +1,7 @@
+{
+  "name": "supermaven",
+  "description": "Fast AI code completion",
+  "version": "1.0.0",
+  "capabilities": ["ultra-fast completion", "large context", "multi-line completion", "IDE integration"],
+  "context": "High-performance AI code completion engine with large context window and fast inference"
+}

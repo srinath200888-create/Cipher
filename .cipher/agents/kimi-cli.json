@@ -1,0 +1,7 @@
+{
+  "name": "kimi-cli",
+  "description": "Moonshot AI's K2.5-powered CLI with 256K context",
+  "version": "1.0.0",
+  "capabilities": ["256K context window", "Moonshot AI integration", "code generation", "long document analysis"],
+  "context": "CLI agent powered by Moonshot AI's K2.5 model with extensive context handling"
+}

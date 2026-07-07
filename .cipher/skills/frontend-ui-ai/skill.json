@@ -1,0 +1,22 @@
+{
+  "name": "frontend-ui-ai",
+  "description": "AI-powered frontend development, UI/UX generation, and component design",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "UI component generation",
+      "responsive design",
+      "accessibility",
+      "animation",
+      "design system creation"
+    ],
+    "tools": [
+      "v0.dev (Vercel)",
+      "Bolt.new",
+      "Lovable",
+      "GSAP Animation",
+      "Tailwind CSS AI",
+      "shadcn/ui"
+    ]
+  }
+}

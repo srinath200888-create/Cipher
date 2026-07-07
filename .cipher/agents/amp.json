@@ -1,0 +1,7 @@
+{
+  "name": "amp",
+  "description": "Sourcegraph's coding agent with Deep mode",
+  "version": "1.0.0",
+  "capabilities": ["Deep mode", "codebase-wide context", "multi-file editing", "Sourcegraph integration"],
+  "context": "Sourcegraph's AI coding agent with deep codebase understanding and multi-file editing"
+}

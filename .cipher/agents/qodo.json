@@ -1,0 +1,7 @@
+{
+  "name": "qodo",
+  "description": "AI test generation and code quality",
+  "version": "1.0.0",
+  "capabilities": ["test generation", "code quality", "coverage analysis", "CI integration"],
+  "context": "AI-driven test generation and code quality assurance tool for automated testing"
+}

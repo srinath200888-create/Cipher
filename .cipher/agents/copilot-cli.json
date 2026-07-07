@@ -1,0 +1,7 @@
+{
+  "name": "copilot-cli",
+  "description": "GitHub Copilot CLI for terminal suggestions",
+  "version": "1.0.0",
+  "capabilities": ["command suggestions", "explain command", "gh integration", "shell completion"],
+  "context": "GitHub Copilot in the terminal providing command suggestions, explanations, and translations"
+}

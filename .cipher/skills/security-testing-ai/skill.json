@@ -1,0 +1,22 @@
+{
+  "name": "security-testing-ai",
+  "description": "AI-driven security auditing, penetration testing, and automated test generation",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "vulnerability scanning",
+      "penetration testing",
+      "test generation",
+      "fuzzing",
+      "compliance checking"
+    ],
+    "tools": [
+      "Meticulous",
+      "Snyk AI",
+      "Semgrep",
+      "Playwright AI",
+      "Cypress AI",
+      "OWASP AI"
+    ]
+  }
+}

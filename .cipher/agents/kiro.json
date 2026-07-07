@@ -1,0 +1,7 @@
+{
+  "name": "kiro",
+  "description": "Spec-driven development with AI agents",
+  "version": "1.0.0",
+  "capabilities": ["spec-driven", "test generation", "behavior verification", "iterative refinement"],
+  "context": "Spec-driven development agent that generates code from behavioral specifications"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "crush",
+  "description": "Charm's TUI-first agent with beautiful Bubble Tea UI",
+  "version": "1.0.0",
+  "capabilities": ["TUI interface", "Bubble Tea UI", "Charm ecosystem", "interactive workflows"],
+  "context": "Terminal agent built with Charm's Bubble Tea framework for beautiful interactive coding"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "claude-squad",
+  "description": "Manage multiple terminal AI agents",
+  "version": "1.0.0",
+  "capabilities": ["multiple agent management", "parallel execution", "task distribution", "result aggregation"],
+  "context": "Tool for orchestrating multiple AI coding agents working in parallel on terminal tasks"
+}

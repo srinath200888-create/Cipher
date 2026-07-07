@@ -1,0 +1,7 @@
+{
+  "name": "cody",
+  "description": "Sourcegraph's enterprise AI coding assistant",
+  "version": "1.0.0",
+  "capabilities": ["codebase-wide context", "enterprise integration", "multi-file editing", "code search"],
+  "context": "Enterprise-grade AI coding assistant from Sourcegraph with deep codebase intelligence"
+}

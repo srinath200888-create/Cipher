@@ -1,0 +1,7 @@
+{
+  "name": "agent-empires",
+  "description": "Multi-agent management TUI/Web",
+  "version": "1.0.0",
+  "capabilities": ["multi-agent management", "agent coordination", "TUI interface", "web dashboard"],
+  "context": "Platform for managing and coordinating multiple AI coding agents via TUI or web interface"
+}

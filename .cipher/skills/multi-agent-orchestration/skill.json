@@ -1,0 +1,24 @@
+{
+  "name": "multi-agent-orchestration",
+  "description": "Orchestrating multiple AI coding agents in parallel, managing agent teams, and workflow coordination",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "parallel agent execution",
+      "agent team coordination",
+      "worktree isolation",
+      "task decomposition",
+      "result merging"
+    ],
+    "tools": [
+      "Claude Code Agent Teams",
+      "OpenHands",
+      "Codex CLI multi-agent",
+      "Agent of Empires",
+      "Claude Squad",
+      "Superset",
+      "Orca",
+      "Emdash"
+    ]
+  }
+}

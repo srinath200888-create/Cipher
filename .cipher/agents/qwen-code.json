@@ -1,0 +1,7 @@
+{
+  "name": "qwen-code",
+  "description": "Alibaba's Qwen3-Coder CLI agent with multimodal analysis",
+  "version": "1.0.0",
+  "capabilities": ["multimodal analysis", "code generation", "image understanding", "long context"],
+  "context": "Terminal coding agent powered by Qwen3-Coder with vision understanding and code generation"
+}

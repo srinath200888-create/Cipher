@@ -1,0 +1,24 @@
+{
+  "name": "database-backend-ai",
+  "description": "AI assistance for database design, backend development, and API creation",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "schema design",
+      "query optimization",
+      "API generation",
+      "backend scaffolding",
+      "migration management"
+    ],
+    "technologies": [
+      "PostgreSQL",
+      "SQLite",
+      "MongoDB",
+      "Redis",
+      "GraphQL",
+      "REST APIs",
+      "Drizzle ORM",
+      "Prisma"
+    ]
+  }
+}

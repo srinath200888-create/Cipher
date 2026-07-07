@@ -1,0 +1,7 @@
+{
+  "name": "factory-droid",
+  "description": "Factory's Droid autonomous coding agent",
+  "version": "1.0.0",
+  "capabilities": ["autonomous coding", "task execution", "multi-step planning", "self-correction"],
+  "context": "Autonomous coding agent from Factory that plans and executes complex coding tasks independently"
+}

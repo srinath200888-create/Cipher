@@ -1,0 +1,20 @@
+{
+  "name": "vim-neovim-ai",
+  "description": "AI integration for Vim and Neovim editors, including plugins and custom workflows",
+  "version": "1.0.0",
+  "context": {
+    "capabilities": [
+      "AI completion in Vim/Neovim",
+      "inline code generation",
+      "buffer-aware editing",
+      "LSP integration"
+    ],
+    "plugins": [
+      "Copilot.vim",
+      "opencode.nvim",
+      "zsh_codex",
+      "AstrBot",
+      "Claudian (Obsidian)"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "plandex",
+  "description": "Long-running coding tasks with 2M token context",
+  "version": "1.0.0",
+  "capabilities": ["long-running tasks", "2M token context", "background execution", "incremental updates"],
+  "context": "Background agent for large-scale coding tasks with massive context window support"
+}

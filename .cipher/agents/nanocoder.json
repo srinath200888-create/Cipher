@@ -1,0 +1,7 @@
+{
+  "name": "nanocoder",
+  "description": "Community collective terminal coding agent, local-first",
+  "version": "1.0.0",
+  "capabilities": ["local-first", "privacy-preserving", "community-driven", "offline-capable"],
+  "context": "Community-built terminal coding agent focused on local execution and privacy"
+}
