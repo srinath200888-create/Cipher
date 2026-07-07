@@ -8,15 +8,29 @@
       "CI/CD pipeline automation",
       "cloud deployment",
       "container orchestration",
-      "monitoring and observability"
+      "monitoring and observability",
+      "incident management",
+      "cost estimation",
+      "feature flagging"
     ],
     "tools": [
-      "Amazon Q Developer CLI",
-      "Pulumi AI",
-      "Datadog Bits AI",
-      "GitHub Actions AI",
-      "SST",
-      "Terraform AI"
+      "pulumi-ai",
+      "datadog",
+      "new-relic",
+      "pagerduty",
+      "harness",
+      "gitlab-ai",
+      "terraform-cloud",
+      "spacelift",
+      "sysdig",
+      "lambdatest",
+      "infracost",
+      "jenkins-x",
+      "deployramp",
+      "qovery-deploy",
+      "amazon-q",
+      "github-copilot",
+      "amazon-codeguru"
     ]
   }
 }

@@ -8,19 +8,42 @@
       "provider switching",
       "local model deployment",
       "API integration",
-      "model benchmarking"
+      "model benchmarking",
+      "cost optimization",
+      "unified API gateways",
+      "prompt evaluation"
     ],
     "providers": [
-      "OpenAI GPT/GPT-5",
-      "Anthropic Claude Opus/Sonnet",
-      "Google Gemini",
-      "DeepSeek Coder",
-      "Qwen Coder",
-      "Mistral",
-      "xAI Grok",
-      "Ollama local models",
-      "LM Studio",
-      "llama.cpp"
+      "Anthropic Claude (Opus/Sonnet/Haiku)",
+      "OpenAI GPT-5/GPT-4o",
+      "Google Gemini 2.5 Pro/3 Pro",
+      "DeepSeek Coder V3/R1",
+      "Qwen2.5-Coder",
+      "Code Llama",
+      "StarCoder 2",
+      "Codestral (Mistral)",
+      "Phi-4 (Microsoft)",
+      "xAI Grok"
+    ],
+    "tools": [
+      "ollama",
+      "lm-studio",
+      "jan",
+      "gpt4all",
+      "llamafile",
+      "local-ai",
+      "llama-cpp",
+      "litellm",
+      "openrouter",
+      "langchain",
+      "llamaindex",
+      "vercel-ai-sdk",
+      "semantic-kernel",
+      "haystack",
+      "promptfoo",
+      "amazon-q",
+      "github-copilot",
+      "tabnine"
     ]
   }
 }

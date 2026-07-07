@@ -8,14 +8,43 @@
       "skill packaging",
       "MCP server development",
       "plugin architecture",
-      "skill marketplace"
+      "skill marketplace",
+      "custom command development",
+      "agent workflow design",
+      "tool integration"
     ],
     "platforms": [
       "GitHub Copilot Skills",
       "Claude Code Skills",
       "OpenCode Skills",
       "Cline MCP",
-      "Continue MCP"
+      "Continue MCP",
+      "Windsurf MCP",
+      "Cursor MCP",
+      "CopilotKit"
+    ],
+    "tools": [
+      "langchain",
+      "llamaindex",
+      "vercel-ai-sdk",
+      "semantic-kernel",
+      "haystack",
+      "litellm",
+      "openrouter",
+      "promptfoo",
+      "autogen",
+      "crewai",
+      "praisonai",
+      "omni-skills-forge",
+      "copilotkit",
+      "fast-agent",
+      "crow-cli",
+      "mcp-server-finder",
+      "pulsemcp",
+      "mcp-so",
+      "swarmvault",
+      "repowise",
+      "context7"
     ]
   }
 }

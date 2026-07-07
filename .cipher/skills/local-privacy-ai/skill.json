@@ -8,16 +8,26 @@
       "offline development",
       "privacy-first architecture",
       "air-gapped deployment",
-      "data sovereignty"
+      "data sovereignty",
+      "self-hosted code completion",
+      "local RAG",
+      "on-premise deployment"
     ],
     "tools": [
-      "Ollama",
-      "LM Studio",
-      "llama.cpp",
-      "Twinny",
-      "FauxPilot",
-      "Tabby",
-      "NanoCoder"
+      "ollama",
+      "lm-studio",
+      "jan",
+      "gpt4all",
+      "llamafile",
+      "local-ai",
+      "tabby",
+      "llama-cpp",
+      "nanocoder",
+      "gpt-engineer",
+      "open-interpreter",
+      "refact-ai",
+      "continue",
+      "tabnine"
     ]
   }
 }

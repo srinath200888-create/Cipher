@@ -12,6 +12,158 @@
       "description": "Contains cipher logs and data",
     },
   },
+  "skills": {
+    "cli-coding-agents": {
+      "path": "./skills/cli-coding-agents/skill.json",
+      "description": "CLI-based coding agents and terminal-native development"
+    },
+    "ai-coding-tools": {
+      "path": "./skills/ai-coding-tools/skill.json",
+      "description": "AI-powered development tools, IDEs, and code assistants"
+    },
+    "ai-ides-assistants": {
+      "path": "./skills/ai-ides-assistants/skill.json",
+      "description": "AI assistants in IDEs and editor environments"
+    },
+    "ai-models-providers": {
+      "path": "./skills/ai-models-providers/skill.json",
+      "description": "AI models, LLM providers, and model orchestration"
+    },
+    "devops-cloud-ai": {
+      "path": "./skills/devops-cloud-ai/skill.json",
+      "description": "AI-powered DevOps, infrastructure, and CI/CD"
+    },
+    "code-review-quality": {
+      "path": "./skills/code-review-quality/skill.json",
+      "description": "AI code review, static analysis, quality gates"
+    },
+    "database-backend-ai": {
+      "path": "./skills/database-backend-ai/skill.json",
+      "description": "AI for database design, backend, and API creation"
+    },
+    "frontend-ui-ai": {
+      "path": "./skills/frontend-ui-ai/skill.json",
+      "description": "AI-powered frontend and UI/UX generation"
+    },
+    "security-testing-ai": {
+      "path": "./skills/security-testing-ai/skill.json",
+      "description": "AI security auditing, testing, and QA"
+    },
+    "local-privacy-ai": {
+      "path": "./skills/local-privacy-ai/skill.json",
+      "description": "Local-first, privacy-preserving AI coding tools"
+    },
+    "multi-agent-orchestration": {
+      "path": "./skills/multi-agent-orchestration/skill.json",
+      "description": "Multi-agent orchestration and agent teams"
+    },
+    "vim-neovim-ai": {
+      "path": "./skills/vim-neovim-ai/skill.json",
+      "description": "AI integration for Vim and Neovim"
+    },
+    "agent-skills-development": {
+      "path": "./skills/agent-skills-development/skill.json",
+      "description": "Creating and distributing custom agent skills"
+    },
+    "effect": {
+      "path": "./skills/effect/SKILL.md",
+      "description": "Effect v4 and effect-smol implementation"
+    }
+  },
+  "agents": {
+    "registry": "./agents/registry.json",
+    "available": [
+      "cursor-ai",
+      "windsurf",
+      "trae",
+      "zed",
+      "pearai",
+      "antigravity",
+      "void-editor",
+      "qoder",
+      "aide",
+      "verdent",
+      "pochi",
+      "z-code",
+      "toad",
+      "nimbalyst",
+      "superset",
+      "archestra",
+      "reasonix",
+      "github-copilot",
+      "junie",
+      "gemini-code-assist",
+      "amazon-q",
+      "tabnine",
+      "cline",
+      "kilo-code",
+      "roo-code",
+      "continue",
+      "augment-code",
+      "cody",
+      "supermaven",
+      "blackbox-ai",
+      "snyk-code",
+      "qodo",
+      "marscode",
+      "claude-code",
+      "codex-cli",
+      "aider",
+      "gemini-cli",
+      "goose",
+      "opencode",
+      "shellgpt",
+      "devin",
+      "openhands",
+      "swe-agent",
+      "sweep",
+      "ellipsis",
+      "genie",
+      "jules",
+      "bolt-new",
+      "v0-dev",
+      "lovable",
+      "replit",
+      "coderabbit",
+      "sourcery",
+      "deepsource",
+      "codacy",
+      "semgrep",
+      "codeql",
+      "pixee",
+      "playwright",
+      "testim",
+      "meticulous",
+      "diffblue",
+      "ollama",
+      "lm-studio",
+      "jan",
+      "gpt4all",
+      "llamafile",
+      "local-ai",
+      "tabby",
+      "langchain",
+      "llamaindex",
+      "vercel-ai-sdk",
+      "semantic-kernel",
+      "litellm",
+      "openrouter",
+      "promptfoo",
+      "autogen",
+      "crewai",
+      "pulumi-ai",
+      "datadog",
+      "harness",
+      "spacelift",
+      "raycast-ai",
+      "warp",
+      "pieces",
+      "specstory",
+      "mintlify",
+      "gitbook-ai",
+      "readme-ai"
+    ]
+  },
   "mcp": {},
   "tools": {
     "github-triage": false,

@@ -8,17 +8,39 @@
       "agent team coordination",
       "worktree isolation",
       "task decomposition",
-      "result merging"
+      "result merging",
+      "multi-agent frameworks",
+      "agent routing",
+      "MCP-based orchestration"
     ],
     "tools": [
-      "Claude Code Agent Teams",
-      "OpenHands",
-      "Codex CLI multi-agent",
-      "Agent of Empires",
-      "Claude Squad",
-      "Superset",
-      "Orca",
-      "Emdash"
+      "autogen",
+      "crewai",
+      "praisonai",
+      "openhands",
+      "swe-agent",
+      "swarmclaw",
+      "agentsmesh",
+      "openase",
+      "superset",
+      "antigravity",
+      "deepagents-js",
+      "open-yak",
+      "brood-box",
+      "wiggum-cli",
+      "agx",
+      "archestra",
+      "codex-cli",
+      "claude-code",
+      "gemini-cli",
+      "opencode",
+      "fast-agent",
+      "crow-cli",
+      "parallel-code",
+      "langchain",
+      "llamaindex",
+      "semantic-kernel",
+      "copilotkit"
     ]
   }
 }

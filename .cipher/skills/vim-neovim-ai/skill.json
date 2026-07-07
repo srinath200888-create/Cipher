@@ -7,14 +7,39 @@
       "AI completion in Vim/Neovim",
       "inline code generation",
       "buffer-aware editing",
-      "LSP integration"
+      "LSP integration",
+      "vim plugin ecosystem",
+      "terminal-based editing",
+      "multi-modal editing"
     ],
     "plugins": [
       "Copilot.vim",
       "opencode.nvim",
       "zsh_codex",
       "AstrBot",
-      "Claudian (Obsidian)"
+      "claude-code",
+      "codex-cli",
+      "gemini-cli",
+      "aider",
+      "goose",
+      "neovate",
+      "github-copilot",
+      "tabnine",
+      "supermaven",
+      "continue"
+    ],
+    "tools": [
+      "neovate",
+      "opencode",
+      "claude-code",
+      "codex-cli",
+      "gemini-cli",
+      "aider",
+      "goose",
+      "shellgpt",
+      "tmuxai",
+      "butterfish",
+      "crush"
     ]
   }
 }

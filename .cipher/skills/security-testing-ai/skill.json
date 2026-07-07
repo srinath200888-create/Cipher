@@ -8,15 +8,51 @@
       "penetration testing",
       "test generation",
       "fuzzing",
-      "compliance checking"
+      "compliance checking",
+      "end-to-end testing",
+      "visual regression testing",
+      "API testing"
     ],
-    "tools": [
-      "Meticulous",
-      "Snyk AI",
-      "Semgrep",
-      "Playwright AI",
-      "Cypress AI",
-      "OWASP AI"
+    "security_tools": [
+      "snyk",
+      "checkmarx",
+      "gitguardian",
+      "semgrep",
+      "veracode",
+      "mend",
+      "jfrog-xray",
+      "bearer-cli",
+      "nullify-ai",
+      "pixee-ai",
+      "gecko-security",
+      "corgea",
+      "hackerone-code",
+      "endor-labs",
+      "code-intelligence",
+      "vulert"
+    ],
+    "testing_tools": [
+      "playwright",
+      "testim",
+      "meticulous",
+      "octomind",
+      "diffblue",
+      "testrigor",
+      "mabl",
+      "applitools",
+      "checksum-ai",
+      "kushoai",
+      "katalon",
+      "testsigma",
+      "launchable",
+      "autify",
+      "reflect",
+      "parasoft",
+      "rainforest-qa",
+      "codeflash",
+      "wopee-io",
+      "gitauto",
+      "agentdiff"
     ]
   }
 }
