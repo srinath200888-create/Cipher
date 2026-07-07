@@ -1,0 +1,26 @@
+{
+  "name": "ai-coding-tools",
+  "description": "Deep knowledge of AI-powered development tools, IDEs, and code assistants",
+  "version": "1.0.0",
+  "commands": {
+    "setup": "Configure AI coding tools for a project",
+    "migrate": "Migrate between AI coding tools",
+    "optimize": "Optimize AI tool configuration"
+  },
+  "context": {
+    "capabilities": [
+      "multi-model orchestration",
+      "tool integration patterns",
+      "prompt engineering",
+      "workflow automation"
+    ],
+    "tools": [
+      "aider",
+      "cline",
+      "openhands",
+      "goose",
+      "continue-cli",
+      "kilo-code"
+    ]
+  }
+}

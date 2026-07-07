@@ -1,0 +1,7 @@
+{
+  "name": "continue-cli",
+  "description": "Open-source AI code assistant for CLI environments",
+  "version": "1.0.0",
+  "capabilities": ["multi-model support", "context management", "custom slash commands"],
+  "context": "modular AI coding assistant with model-agnostic architecture"
+}

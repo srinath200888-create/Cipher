@@ -1,0 +1,7 @@
+{
+  "name": "openhands",
+  "description": "Autonomous AI agent for software development",
+  "version": "1.0.0",
+  "capabilities": ["code generation", "debugging", "research", "web browsing"],
+  "context": "general-purpose autonomous development agent"
+}

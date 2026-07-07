@@ -1,0 +1,7 @@
+{
+  "name": "codex-cli",
+  "description": "OpenAI Codex-powered terminal coding agent",
+  "version": "1.0.0",
+  "capabilities": ["natural language to code", "code completion", "documentation generation"],
+  "context": "AI coding assistant powered by OpenAI Codex"
+}

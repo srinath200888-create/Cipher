@@ -1,0 +1,33 @@
+{
+  "$schema": "https://v2-8-13.turborepo.dev/schema.json",
+  "globalEnv": ["CI", "CIPHER_DISABLE_SHARE"],
+  "globalPassThroughEnv": ["CI", "CIPHER_DISABLE_SHARE"],
+  "tasks": {
+    "typecheck": {},
+    "build": {
+      "dependsOn": [],
+      "outputs": ["dist/**"]
+    },
+    "cipher#test": {
+      "dependsOn": ["^build"],
+      "outputs": [],
+      "passThroughEnv": ["*"]
+    },
+    "@cipher-ai/core#test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "@cipher-ai/app#test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "@cipher-ai/ui#test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "@cipher-ai/session-ui#test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    }
+  }
+}

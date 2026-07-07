@@ -1,0 +1,7 @@
+{
+  "name": "aider",
+  "description": "AI pair programming in the terminal with git integration",
+  "version": "1.0.0",
+  "capabilities": ["git-aware editing", "architect mode", "benchmarking"],
+  "context": "terminal-based pair programmer with automatic commit messages"
+}

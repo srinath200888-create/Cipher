@@ -1,0 +1,24 @@
+{
+  "name": "ai-ides-assistants",
+  "description": "Integration patterns for AI assistants in IDEs and editor environments",
+  "version": "1.0.0",
+  "commands": {
+    "integrate": "Integrate AI into an IDE workflow",
+    "customize": "Customize AI assistant behavior in editors",
+    "bridge": "Bridge CLI tools with IDE assistants"
+  },
+  "context": {
+    "capabilities": [
+      "IDE extension development",
+      "editor integration patterns",
+      "LSP and DAP protocols",
+      "multi-agent coordination"
+    ],
+    "platforms": [
+      "VS Code",
+      "JetBrains",
+      "Neovim",
+      "Helix"
+    ]
+  }
+}

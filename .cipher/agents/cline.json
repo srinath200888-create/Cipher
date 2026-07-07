@@ -1,0 +1,7 @@
+{
+  "name": "cline",
+  "description": "Autonomous coding agent for VS Code and terminal",
+  "version": "1.0.0",
+  "capabilities": ["autonomous task execution", "terminal command execution", "browser interaction"],
+  "context": "agentic coding assistant that can execute commands and browse docs"
+}

@@ -1,0 +1,733 @@
+﻿---
+title: CLI
+description: Cipher CLI options and commands.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+The Cipher CLI by default starts the [TUI](/docs/tui) when run without any arguments.
+
+```bash
+cipher
+```
+
+But it also accepts commands as documented on this page. This allows you to interact with Cipher programmatically.
+
+```bash
+cipher run "Explain how closures work in JavaScript"
+```
+
+---
+
+### tui
+
+Start the Cipher terminal user interface.
+
+```bash
+cipher [project]
+```
+
+#### Flags
+
+| Flag                                        | Short | Description                                                             |
+| ------------------------------------------- | ----- | ----------------------------------------------------------------------- |
+| <nobr><code>{"--continue"}</code></nobr>    | `-c`  | Continue the last session                                               |
+| <nobr><code>{"--session"}</code></nobr>     | `-s`  | Session ID to continue                                                  |
+| <nobr><code>{"--fork"}</code></nobr>        |       | Fork the session when continuing (use with `--continue` or `--session`) |
+| <nobr><code>{"--prompt"}</code></nobr>      |       | Prompt to use                                                           |
+| <nobr><code>{"--model"}</code></nobr>       | `-m`  | Model to use in the form of provider/model                              |
+| <nobr><code>{"--agent"}</code></nobr>       |       | Agent to use                                                            |
+| <nobr><code>{"--auto"}</code></nobr>        |       | Auto-approve permissions that are not explicitly denied                 |
+| <nobr><code>{"--port"}</code></nobr>        |       | Port to listen on                                                       |
+| <nobr><code>{"--hostname"}</code></nobr>    |       | Hostname to listen on                                                   |
+| <nobr><code>{"--mdns"}</code></nobr>        |       | Enable mDNS discovery                                                   |
+| <nobr><code>{"--mdns-domain"}</code></nobr> |       | Custom mDNS domain name                                                 |
+| <nobr><code>{"--cors"}</code></nobr>        |       | Additional browser origin(s) to allow CORS                              |
+
+---
+
+## Commands
+
+The Cipher CLI also has the following commands.
+
+---
+
+### agent
+
+Manage agents for Cipher.
+
+```bash
+Cipher agent [command]
+```
+
+---
+
+#### create
+
+Create a new agent with custom configuration.
+
+```bash
+Cipher agent create
+```
+
+This command will guide you through creating a new agent with a custom system prompt and permission configuration. Anything you don't allow is denied in the generated agent's frontmatter.
+
+#### Flags
+
+| Flag                                        | Short | Description                                                                                                                                                                                                                |
+| ------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <nobr><code>{"--path"}</code></nobr>        |       | Directory to write the agent file to (defaults to global or `.cipher/agent` based on the prompt)                                                                                                                         |
+| <nobr><code>{"--description"}</code></nobr> |       | What the agent should do                                                                                                                                                                                                   |
+| <nobr><code>{"--mode"}</code></nobr>        |       | Agent mode: `all`, `primary`, or `subagent`                                                                                                                                                                                |
+| <nobr><code>{"--permissions"}</code></nobr> |       | Comma-separated list of permissions to allow (default: all). Available: `bash`, `read`, `edit`, `glob`, `grep`, `webfetch`, `task`, `todowrite`, `websearch`, `lsp`, `skill`. Anything omitted is denied. Alias: `--tools` |
+| <nobr><code>{"--model"}</code></nobr>       | `-m`  | Model to use, in `provider/model` format                                                                                                                                                                                   |
+
+Passing all of `--path`, `--description`, `--mode`, and `--permissions` runs the command non-interactively.
+
+---
+
+#### list
+
+List all available agents.
+
+```bash
+Cipher agent list
+```
+
+---
+
+### attach
+
+Attach a terminal to an already running Cipher backend server started via `serve` or `web` commands.
+
+```bash
+Cipher attach [url]
+```
+
+This allows using the TUI with a remote Cipher backend. For example:
+
+```bash
+# Start the backend server for web/mobile access
+Cipher web --port 4096 --hostname 0.0.0.0
+
+# In another terminal, attach the TUI to the running backend
+Cipher attach http://10.20.30.40:4096
+```
+
+#### Flags
+
+| Flag                                     | Short | Description                                                                |
+| ---------------------------------------- | ----- | -------------------------------------------------------------------------- |
+| <nobr><code>{"--dir"}</code></nobr>      |       | Working directory to start TUI in                                          |
+| <nobr><code>{"--continue"}</code></nobr> | `-c`  | Continue the last session                                                  |
+| <nobr><code>{"--session"}</code></nobr>  | `-s`  | Session ID to continue                                                     |
+| <nobr><code>{"--fork"}</code></nobr>     |       | Fork the session when continuing (use with `--continue` or `--session`)    |
+| <nobr><code>{"--password"}</code></nobr> | `-p`  | Basic auth password (defaults to `CIPHER_SERVER_PASSWORD`)               |
+| <nobr><code>{"--username"}</code></nobr> | `-u`  | Basic auth username (defaults to `CIPHER_SERVER_USERNAME` or `Cipher`) |
+
+---
+
+### auth
+
+Command to manage credentials and login for providers.
+
+```bash
+Cipher auth [command]
+```
+
+---
+
+#### login
+
+Cipher is powered by the provider list at [Models.dev](https://models.dev), so you can use `Cipher auth login` to configure API keys for any provider you'd like to use. This is stored in `~/.local/share/opencode/auth.json`.
+
+```bash
+Cipher auth login
+```
+
+When Cipher starts up it loads the providers from the credentials file. And if there are any keys defined in your environments or a `.env` file in your project.
+
+##### Flags
+
+| Flag                                     | Short | Description                                          |
+| ---------------------------------------- | ----- | ---------------------------------------------------- |
+| <nobr><code>{"--provider"}</code></nobr> | `-p`  | Provider ID or name to log in to                     |
+| <nobr><code>{"--method"}</code></nobr>   | `-m`  | Login method label to use, skipping method selection |
+
+---
+
+#### list
+
+Lists all the authenticated providers as stored in the credentials file.
+
+```bash
+Cipher auth list
+```
+
+Or the short version.
+
+```bash
+Cipher auth ls
+```
+
+---
+
+#### logout
+
+Logs you out of a provider by clearing it from the credentials file.
+
+```bash
+Cipher auth logout
+```
+
+---
+
+### github
+
+Manage the GitHub agent for repository automation.
+
+```bash
+Cipher github [command]
+```
+
+---
+
+#### install
+
+Install the GitHub agent in your repository.
+
+```bash
+Cipher github install
+```
+
+This sets up the necessary GitHub Actions workflow and guides you through the configuration process. [Learn more](/docs/github).
+
+---
+
+#### run
+
+Run the GitHub agent. This is typically used in GitHub Actions.
+
+```bash
+Cipher github run
+```
+
+##### Flags
+
+| Flag                                  | Description                            |
+| ------------------------------------- | -------------------------------------- |
+| <nobr><code>{"--event"}</code></nobr> | GitHub mock event to run the agent for |
+| <nobr><code>{"--token"}</code></nobr> | GitHub personal access token           |
+
+---
+
+### mcp
+
+Manage Model Context Protocol servers.
+
+```bash
+Cipher mcp [command]
+```
+
+---
+
+#### add
+
+Add an MCP server to your configuration.
+
+```bash
+Cipher mcp add
+```
+
+This command will guide you through adding either a local or remote MCP server.
+
+---
+
+#### list
+
+List all configured MCP servers and their connection status.
+
+```bash
+Cipher mcp list
+```
+
+Or use the short version.
+
+```bash
+Cipher mcp ls
+```
+
+---
+
+#### auth
+
+Authenticate with an OAuth-enabled MCP server.
+
+```bash
+Cipher mcp auth [name]
+```
+
+If you don't provide a server name, you'll be prompted to select from available OAuth-capable servers.
+
+You can also list OAuth-capable servers and their authentication status.
+
+```bash
+Cipher mcp auth list
+```
+
+Or use the short version.
+
+```bash
+Cipher mcp auth ls
+```
+
+---
+
+#### logout
+
+Remove OAuth credentials for an MCP server.
+
+```bash
+Cipher mcp logout [name]
+```
+
+---
+
+#### debug
+
+Debug OAuth connection issues for an MCP server.
+
+```bash
+Cipher mcp debug <name>
+```
+
+---
+
+### models
+
+List all available models from configured providers.
+
+```bash
+Cipher models [provider]
+```
+
+This command displays all models available across your configured providers in the format `provider/model`.
+
+This is useful for figuring out the exact model name to use in [your config](/docs/config/).
+
+You can optionally pass a provider ID to filter models by that provider.
+
+```bash
+Cipher models anthropic
+```
+
+#### Flags
+
+| Flag                                    | Description                                                  |
+| --------------------------------------- | ------------------------------------------------------------ |
+| <nobr><code>{"--refresh"}</code></nobr> | Refresh the models cache from models.dev                     |
+| <nobr><code>{"--verbose"}</code></nobr> | Use more verbose model output (includes metadata like costs) |
+
+Use the `--refresh` flag to update the cached model list. This is useful when new models have been added to a provider and you want to see them in Cipher.
+
+```bash
+Cipher models --refresh
+```
+
+---
+
+### run
+
+Run Cipher in non-interactive mode by passing a prompt directly.
+
+```bash
+Cipher run [message..]
+```
+
+This is useful for scripting, automation, or when you want a quick answer without launching the full TUI. For example.
+
+```bash "Cipher run"
+Cipher run Explain the use of context in Go
+```
+
+You can also attach to a running `Cipher serve` instance to avoid MCP server cold boot times on every run:
+
+```bash
+# Start a headless server in one terminal
+Cipher serve
+
+# In another terminal, run commands that attach to it
+Cipher run --attach http://localhost:4096 "Explain async/await in JavaScript"
+```
+
+#### Flags
+
+| Flag                                     | Short | Description                                                                |
+| ---------------------------------------- | ----- | -------------------------------------------------------------------------- |
+| <nobr><code>{"--command"}</code></nobr>  |       | The command to run, use message for args                                   |
+| <nobr><code>{"--continue"}</code></nobr> | `-c`  | Continue the last session                                                  |
+| <nobr><code>{"--session"}</code></nobr>  | `-s`  | Session ID to continue                                                     |
+| <nobr><code>{"--fork"}</code></nobr>     |       | Fork the session when continuing (use with `--continue` or `--session`)    |
+| <nobr><code>{"--share"}</code></nobr>    |       | Share the session                                                          |
+| <nobr><code>{"--model"}</code></nobr>    | `-m`  | Model to use in the form of provider/model                                 |
+| <nobr><code>{"--agent"}</code></nobr>    |       | Agent to use                                                               |
+| <nobr><code>{"--file"}</code></nobr>     | `-f`  | File(s) to attach to message                                               |
+| <nobr><code>{"--format"}</code></nobr>   |       | Format: default (formatted) or json (raw JSON events)                      |
+| <nobr><code>{"--title"}</code></nobr>    |       | Title for the session (uses truncated prompt if no value provided)         |
+| <nobr><code>{"--attach"}</code></nobr>   |       | Attach to a running Cipher server (e.g., http://localhost:4096)          |
+| <nobr><code>{"--password"}</code></nobr> | `-p`  | Basic auth password (defaults to `CIPHER_SERVER_PASSWORD`)               |
+| <nobr><code>{"--username"}</code></nobr> | `-u`  | Basic auth username (defaults to `CIPHER_SERVER_USERNAME` or `Cipher`) |
+| <nobr><code>{"--dir"}</code></nobr>      |       | Directory to run in, or path on the remote server when attaching           |
+| <nobr><code>{"--port"}</code></nobr>     |       | Port for the local server (defaults to random port)                        |
+| <nobr><code>{"--variant"}</code></nobr>  |       | Model variant (provider-specific reasoning effort)                         |
+| <nobr><code>{"--thinking"}</code></nobr> |       | Show thinking blocks                                                       |
+| <nobr><code>{"--auto"}</code></nobr>     |       | Auto-approve permissions that are not explicitly denied                    |
+
+---
+
+### serve
+
+Start a headless Cipher server for API access. Check out the [server docs](/docs/server) for the full HTTP interface.
+
+```bash
+Cipher serve
+```
+
+This starts an HTTP server that provides API access to Cipher functionality without the TUI interface. Set `CIPHER_SERVER_PASSWORD` to enable HTTP basic auth (username defaults to `Cipher`).
+
+#### Flags
+
+| Flag                                        | Description                                |
+| ------------------------------------------- | ------------------------------------------ |
+| <nobr><code>{"--port"}</code></nobr>        | Port to listen on                          |
+| <nobr><code>{"--hostname"}</code></nobr>    | Hostname to listen on                      |
+| <nobr><code>{"--mdns"}</code></nobr>        | Enable mDNS discovery                      |
+| <nobr><code>{"--mdns-domain"}</code></nobr> | Custom mDNS domain name                    |
+| <nobr><code>{"--cors"}</code></nobr>        | Additional browser origin(s) to allow CORS |
+
+---
+
+### session
+
+Manage Cipher sessions.
+
+```bash
+Cipher session [command]
+```
+
+---
+
+#### list
+
+List all Cipher sessions.
+
+```bash
+Cipher session list
+```
+
+##### Flags
+
+| Flag                                      | Short | Description                          |
+| ----------------------------------------- | ----- | ------------------------------------ |
+| <nobr><code>{"--max-count"}</code></nobr> | `-n`  | Limit to N most recent sessions      |
+| <nobr><code>{"--format"}</code></nobr>    |       | Output format: table or json (table) |
+
+---
+
+#### delete
+
+Delete an Cipher session.
+
+```bash
+Cipher session delete <sessionID>
+```
+
+---
+
+### stats
+
+Show token usage and cost statistics for your Cipher sessions.
+
+```bash
+Cipher stats
+```
+
+#### Flags
+
+| Flag                                    | Description                                                                 |
+| --------------------------------------- | --------------------------------------------------------------------------- |
+| <nobr><code>{"--days"}</code></nobr>    | Show stats for the last N days (all time)                                   |
+| <nobr><code>{"--tools"}</code></nobr>   | Number of tools to show (all)                                               |
+| <nobr><code>{"--models"}</code></nobr>  | Show model usage breakdown (hidden by default). Pass a number to show top N |
+| <nobr><code>{"--project"}</code></nobr> | Filter by project (all projects, empty string: current project)             |
+
+---
+
+### export
+
+Export session data as JSON.
+
+```bash
+Cipher export [sessionID]
+```
+
+If you don't provide a session ID, you'll be prompted to select from available sessions.
+
+#### Flags
+
+| Flag                                     | Description                           |
+| ---------------------------------------- | ------------------------------------- |
+| <nobr><code>{"--sanitize"}</code></nobr> | Redact sensitive transcript/file data |
+
+---
+
+### import
+
+Import session data from a JSON file or Cipher share URL.
+
+```bash
+Cipher import <file>
+```
+
+You can import from a local file or an Cipher share URL.
+
+```bash
+Cipher import session.json
+Cipher import https://opncd.ai/s/abc123
+```
+
+---
+
+### web
+
+Start a headless Cipher server with a web interface.
+
+```bash
+Cipher web
+```
+
+This starts an HTTP server and opens a web browser to access Cipher through a web interface. Set `CIPHER_SERVER_PASSWORD` to enable HTTP basic auth (username defaults to `Cipher`).
+
+#### Flags
+
+| Flag                                        | Description                                |
+| ------------------------------------------- | ------------------------------------------ |
+| <nobr><code>{"--port"}</code></nobr>        | Port to listen on                          |
+| <nobr><code>{"--hostname"}</code></nobr>    | Hostname to listen on                      |
+| <nobr><code>{"--mdns"}</code></nobr>        | Enable mDNS discovery                      |
+| <nobr><code>{"--mdns-domain"}</code></nobr> | Custom mDNS domain name                    |
+| <nobr><code>{"--cors"}</code></nobr>        | Additional browser origin(s) to allow CORS |
+
+---
+
+### acp
+
+Start an ACP (Agent Client Protocol) server.
+
+```bash
+Cipher acp
+```
+
+This command starts an ACP server that communicates via stdin/stdout using nd-JSON.
+
+#### Flags
+
+| Flag                                        | Description                                |
+| ------------------------------------------- | ------------------------------------------ |
+| <nobr><code>{"--cwd"}</code></nobr>         | Working directory                          |
+| <nobr><code>{"--port"}</code></nobr>        | Port to listen on                          |
+| <nobr><code>{"--hostname"}</code></nobr>    | Hostname to listen on                      |
+| <nobr><code>{"--mdns"}</code></nobr>        | Enable mDNS discovery                      |
+| <nobr><code>{"--mdns-domain"}</code></nobr> | Custom mDNS domain name                    |
+| <nobr><code>{"--cors"}</code></nobr>        | Additional browser origin(s) to allow CORS |
+
+---
+
+### plugin
+
+Install a plugin and update your config.
+
+```bash
+Cipher plugin <module>
+```
+
+Or use the alias.
+
+```bash
+Cipher plug <module>
+```
+
+#### Flags
+
+| Flag                                   | Short | Description                     |
+| -------------------------------------- | ----- | ------------------------------- |
+| <nobr><code>{"--global"}</code></nobr> | `-g`  | Install in global config        |
+| <nobr><code>{"--force"}</code></nobr>  | `-f`  | Replace existing plugin version |
+
+---
+
+### pr
+
+Fetch and checkout a GitHub PR branch, then run Cipher.
+
+```bash
+Cipher pr <number>
+```
+
+---
+
+### db
+
+Database tools.
+
+```bash
+Cipher db [query]
+```
+
+#### Flags
+
+| Flag                                   | Description                    |
+| -------------------------------------- | ------------------------------ |
+| <nobr><code>{"--format"}</code></nobr> | Output format: `json` or `tsv` |
+
+---
+
+#### path
+
+Print the database path.
+
+```bash
+Cipher db path
+```
+
+---
+
+### debug
+
+Debugging and troubleshooting tools.
+
+```bash
+Cipher debug [command]
+```
+
+---
+
+### uninstall
+
+Uninstall Cipher and remove all related files.
+
+```bash
+Cipher uninstall
+```
+
+#### Flags
+
+| Flag                                        | Short | Description                                 |
+| ------------------------------------------- | ----- | ------------------------------------------- |
+| <nobr><code>{"--keep-config"}</code></nobr> | `-c`  | Keep configuration files                    |
+| <nobr><code>{"--keep-data"}</code></nobr>   | `-d`  | Keep session data and snapshots             |
+| <nobr><code>{"--dry-run"}</code></nobr>     |       | Show what would be removed without removing |
+| <nobr><code>{"--force"}</code></nobr>       | `-f`  | Skip confirmation prompts                   |
+
+---
+
+### upgrade
+
+Updates Cipher to the latest version or a specific version.
+
+```bash
+Cipher upgrade [target]
+```
+
+To upgrade to the latest version.
+
+```bash
+Cipher upgrade
+```
+
+To upgrade to a specific version.
+
+```bash
+Cipher upgrade v0.1.48
+```
+
+#### Flags
+
+| Flag                                   | Short | Description                                                       |
+| -------------------------------------- | ----- | ----------------------------------------------------------------- |
+| <nobr><code>{"--method"}</code></nobr> | `-m`  | The installation method that was used; curl, npm, pnpm, bun, brew |
+
+---
+
+## Global Flags
+
+The Cipher CLI takes the following global flags.
+
+| Flag                                       | Short | Description                          |
+| ------------------------------------------ | ----- | ------------------------------------ |
+| <nobr><code>{"--help"}</code></nobr>       | `-h`  | Display help                         |
+| <nobr><code>{"--version"}</code></nobr>    | `-v`  | Print version number                 |
+| <nobr><code>{"--print-logs"}</code></nobr> |       | Print logs to stderr                 |
+| <nobr><code>{"--log-level"}</code></nobr>  |       | Log level (DEBUG, INFO, WARN, ERROR) |
+| <nobr><code>{"--pure"}</code></nobr>       |       | Run without external plugins         |
+
+---
+
+## Environment variables
+
+Cipher can be configured using environment variables.
+
+| Variable                              | Type    | Description                                       |
+| ------------------------------------- | ------- | ------------------------------------------------- |
+| `CIPHER_AUTO_SHARE`                 | boolean | Automatically share sessions                      |
+| `CIPHER_GIT_BASH_PATH`              | string  | Path to Git Bash executable on Windows            |
+| `CIPHER_CONFIG`                     | string  | Path to config file                               |
+| `CIPHER_TUI_CONFIG`                 | string  | Path to TUI config file                           |
+| `CIPHER_CONFIG_DIR`                 | string  | Path to config directory                          |
+| `CIPHER_CONFIG_CONTENT`             | string  | Inline json config content                        |
+| `CIPHER_DISABLE_AUTOUPDATE`         | boolean | Disable automatic update checks                   |
+| `CIPHER_DISABLE_PRUNE`              | boolean | Disable pruning of old data                       |
+| `CIPHER_DISABLE_TERMINAL_TITLE`     | boolean | Disable automatic terminal title updates          |
+| `CIPHER_PERMISSION`                 | string  | Inlined json permissions config                   |
+| `CIPHER_DISABLE_DEFAULT_PLUGINS`    | boolean | Disable default plugins                           |
+| `CIPHER_DISABLE_LSP_DOWNLOAD`       | boolean | Disable automatic LSP server downloads            |
+| `CIPHER_ENABLE_EXPERIMENTAL_MODELS` | boolean | Enable experimental models                        |
+| `CIPHER_DISABLE_AUTOCOMPACT`        | boolean | Disable automatic context compaction              |
+| `CIPHER_DISABLE_CLAUDE_CODE`        | boolean | Disable reading from `.claude` (prompt + skills)  |
+| `CIPHER_DISABLE_CLAUDE_CODE_PROMPT` | boolean | Disable reading `~/.claude/CLAUDE.md`             |
+| `CIPHER_DISABLE_CLAUDE_CODE_SKILLS` | boolean | Disable loading `.claude/skills`                  |
+| `CIPHER_DISABLE_MODELS_FETCH`       | boolean | Disable fetching models from remote sources       |
+| `CIPHER_DISABLE_MOUSE`              | boolean | Disable mouse capture in the TUI                  |
+| `CIPHER_FAKE_VCS`                   | string  | Fake VCS provider for testing purposes            |
+| `CIPHER_CLIENT`                     | string  | Client identifier (defaults to `cli`)             |
+| `CIPHER_ENABLE_EXA`                 | boolean | Enable Exa web search tools                       |
+| `CIPHER_SERVER_PASSWORD`            | string  | Enable basic auth for `serve`/`web`               |
+| `CIPHER_SERVER_USERNAME`            | string  | Override basic auth username (default `Cipher`) |
+| `CIPHER_MODELS_URL`                 | string  | Custom URL for fetching models configuration      |
+
+---
+
+### Experimental
+
+These environment variables enable experimental features that may change or be removed.
+
+| Variable                                        | Type    | Description                             |
+| ----------------------------------------------- | ------- | --------------------------------------- |
+| `CIPHER_EXPERIMENTAL`                         | boolean | Enable the experimental umbrella flag   |
+| `CIPHER_EXPERIMENTAL_ICON_DISCOVERY`          | boolean | Enable icon discovery                   |
+| `CIPHER_EXPERIMENTAL_DISABLE_COPY_ON_SELECT`  | boolean | Disable copy on select in TUI           |
+| `CIPHER_EXPERIMENTAL_BASH_DEFAULT_TIMEOUT_MS` | number  | Default timeout for bash commands in ms |
+| `CIPHER_EXPERIMENTAL_OUTPUT_TOKEN_MAX`        | number  | Max output tokens for LLM responses     |
+| `CIPHER_EXPERIMENTAL_FILEWATCHER`             | boolean | Enable file watcher for entire dir      |
+| `CIPHER_EXPERIMENTAL_OXFMT`                   | boolean | Enable oxfmt formatter                  |
+| `CIPHER_EXPERIMENTAL_LSP_TOOL`                | boolean | Enable experimental LSP tool            |
+| `CIPHER_EXPERIMENTAL_DISABLE_FILEWATCHER`     | boolean | Disable file watcher                    |
+| `CIPHER_EXPERIMENTAL_EXA`                     | boolean | Enable experimental Exa features        |
+| `CIPHER_EXPERIMENTAL_LSP_TY`                  | boolean | Enable TY LSP for python files          |
+| `CIPHER_EXPERIMENTAL_PLAN_MODE`               | boolean | Enable plan mode                        |
+| `CIPHER_EXPERIMENTAL_BACKGROUND_SUBAGENTS`    | boolean | Enable background subagent tasks        |
+| `CIPHER_EXPERIMENTAL_EVENT_SYSTEM`            | boolean | Enable experimental event system        |
+| `CIPHER_EXPERIMENTAL_NATIVE_LLM`              | boolean | Enable native LLM request path          |
+| `CIPHER_EXPERIMENTAL_PARALLEL`                | boolean | Enable parallel web search execution    |
+| `CIPHER_EXPERIMENTAL_SCOUT`                   | boolean | Enable Scout subagent                   |
+| `CIPHER_EXPERIMENTAL_WORKSPACES`              | boolean | Enable workspace support                |

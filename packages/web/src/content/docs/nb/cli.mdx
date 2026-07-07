@@ -1,0 +1,617 @@
+﻿---
+title: CLI
+description: Cipher CLI-alternativer og kommandoer.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+Cipher CLI starter som standard [TUI](/docs/tui) når den kjøres uten noen argumenter.
+
+```bash
+Cipher
+```
+
+Men den godtar også kommandoer som dokumentert på denne siden. Dette lar deg samhandle med Cipher programmatisk.
+
+```bash
+Cipher run "Explain how closures work in JavaScript"
+```
+
+---
+
+### tui
+
+Start cipher-terminalbrukergrensesnittet.
+
+```bash
+Cipher [project]
+```
+
+#### Flagg
+
+| Flagg                                    | Kort | Beskrivelse                                                              |
+| ---------------------------------------- | ---- | ------------------------------------------------------------------------ |
+| <nobr><code>{"--continue"}</code></nobr> | `-c` | Fortsett siste økt                                                       |
+| <nobr><code>{"--session"}</code></nobr>  | `-s` | Økt ID for å fortsette                                                   |
+| <nobr><code>{"--fork"}</code></nobr>     |      | Forgren økten ved fortsettelse (bruk med `--continue` eller `--session`) |
+| <nobr><code>{"--prompt"}</code></nobr>   |      | Ledetekst som skal brukes                                                |
+| <nobr><code>{"--model"}</code></nobr>    | `-m` | Modell å bruke i form av leverandør/modell                               |
+| <nobr><code>{"--agent"}</code></nobr>    |      | Agent som skal brukes                                                    |
+| <nobr><code>{"--port"}</code></nobr>     |      | Port å lytte på                                                          |
+| <nobr><code>{"--hostname"}</code></nobr> |      | Vertsnavn å lytte på                                                     |
+
+---
+
+## Kommandoer
+
+Cipher CLI har også følgende kommandoer.
+
+---
+
+### agent
+
+Administrer agenter for Cipher.
+
+```bash
+Cipher agent [command]
+```
+
+---
+
+### attach
+
+Koble en terminal til en allerede kjørende cipher-backend-server startet via `serve` eller `web` kommandoer.
+
+```bash
+Cipher attach [url]
+```
+
+Dette gjør det mulig å bruke TUI med en ekstern cipher-backend. For eksempel:
+
+```bash
+# Start the backend server for web/mobile access
+Cipher web --port 4096 --hostname 0.0.0.0
+
+# In another terminal, attach the TUI to the running backend
+Cipher attach http://10.20.30.40:4096
+```
+
+#### Flagg
+
+| Flagg                                    | Kort | Beskrivelse                                                                                        |
+| ---------------------------------------- | ---- | -------------------------------------------------------------------------------------------------- |
+| <nobr><code>{"--dir"}</code></nobr>      |      | Arbeidskatalog for å starte TUI i                                                                  |
+| <nobr><code>{"--continue"}</code></nobr> | `-c` | Fortsett siste økt                                                                                 |
+| <nobr><code>{"--session"}</code></nobr>  | `-s` | Økt ID for å fortsette                                                                             |
+| <nobr><code>{"--fork"}</code></nobr>     |      | Forgren økten ved fortsettelse (bruk med `--continue` eller `--session`)                           |
+| <nobr><code>{"--password"}</code></nobr> | `-p` | Passord for grunnleggende autentisering (standard: `CIPHER_SERVER_PASSWORD`)                     |
+| <nobr><code>{"--username"}</code></nobr> | `-u` | Brukernavn for grunnleggende autentisering (standard: `CIPHER_SERVER_USERNAME` eller `Cipher`) |
+
+---
+
+#### create
+
+Opprett en ny agent med tilpasset konfigurasjon.
+
+```bash
+Cipher agent create
+```
+
+Denne kommandoen vil veilede deg gjennom å lage en ny agent med en tilpasset systemmelding og verktøykonfigurasjon.
+
+---
+
+#### list
+
+List opp alle tilgjengelige agenter.
+
+```bash
+Cipher agent list
+```
+
+---
+
+### auth
+
+Kommando for administrasjon av påloggingsinformasjon og innlogging for leverandører.
+
+```bash
+Cipher auth [command]
+```
+
+---
+
+#### login
+
+Cipher drives av leverandørlisten på [Models.dev](https://models.dev), så du kan bruke `Cipher auth login` til å konfigurere API-nøkler for enhver leverandør du vil bruke. Dette er lagret i `~/.local/share/opencode/auth.json`.
+
+```bash
+Cipher auth login
+```
+
+Når Cipher starter opp, laster den leverandørene fra filen med påloggingsinformasjon. Og hvis det er noen nøkler definert i miljøene dine eller en `.env`-fil i prosjektet ditt.
+
+---
+
+#### list
+
+Viser alle de autentiserte leverandørene som er lagret i filen med påloggingsinformasjon.
+
+```bash
+Cipher auth list
+```
+
+Eller bruk kortversjonen.
+
+```bash
+Cipher auth ls
+```
+
+---
+
+#### logout
+
+Logger deg ut av en leverandør ved å fjerne den fra filen med påloggingsinformasjon.
+
+```bash
+Cipher auth logout
+```
+
+---
+
+### github
+
+Administrer GitHub-agenten for depotautomatisering.
+
+```bash
+Cipher github [command]
+```
+
+---
+
+#### install
+
+Installer GitHub-agenten i depotet ditt.
+
+```bash
+Cipher github install
+```
+
+Dette setter opp den nødvendige GitHub Actions-arbeidsflyten og veileder deg gjennom konfigurasjonsprosessen. [Finn ut mer](/docs/github).
+
+---
+
+#### run
+
+Kjør GitHub-agenten. Dette brukes vanligvis i GitHub Actions.
+
+```bash
+Cipher github run
+```
+
+##### Flagg
+
+| Flagg                                 | Beskrivelse                                  |
+| ------------------------------------- | -------------------------------------------- |
+| <nobr><code>{"--event"}</code></nobr> | GitHub mock-hendelse agenten skal kjøres for |
+| <nobr><code>{"--token"}</code></nobr> | GitHub personlig tilgangsnøkkel              |
+
+---
+
+### mcp
+
+Administrer Model Context Protocol-servere.
+
+```bash
+Cipher mcp [command]
+```
+
+---
+
+#### add
+
+Legg til en MCP-server til konfigurasjonen.
+
+```bash
+Cipher mcp add
+```
+
+Denne kommandoen vil veilede deg gjennom å legge til enten en lokal eller ekstern MCP-server.
+
+---
+
+#### list
+
+Liste alle konfigurerte MCP-servere og deres tilkoblingsstatus.
+
+```bash
+Cipher mcp list
+```
+
+Eller bruk den korte versjonen.
+
+```bash
+Cipher mcp ls
+```
+
+---
+
+#### auth
+
+Autentiser med en OAuth-aktivert MCP-server.
+
+```bash
+Cipher mcp auth [name]
+```
+
+Hvis du ikke oppgir et servernavn, blir du bedt om å velge blant tilgjengelige OAuth-kompatible servere.
+
+Du kan også liste opp OAuth-kompatible servere og deres autentiseringsstatus.
+
+```bash
+Cipher mcp auth list
+```
+
+Eller bruk den korte versjonen.
+
+```bash
+Cipher mcp auth ls
+```
+
+---
+
+#### logout
+
+Fjern OAuth-påloggingsinformasjon for en MCP-server.
+
+```bash
+Cipher mcp logout [name]
+```
+
+---
+
+#### debug
+
+Feilsøk OAuth-tilkoblingsproblemer for en MCP-server.
+
+```bash
+Cipher mcp debug <name>
+```
+
+---
+
+### models
+
+List opp alle tilgjengelige modeller fra konfigurerte leverandører.
+
+```bash
+Cipher models [provider]
+```
+
+Denne kommandoen viser alle modeller som er tilgjengelige på tvers av dine konfigurerte leverandører i formatet `provider/model`.
+
+Dette er nyttig for å finne ut det eksakte modellnavnet som skal brukes i [din konfigurasjon](/docs/config/).
+
+Du kan eventuelt sende en leverandør ID for å filtrere modeller etter den leverandøren.
+
+```bash
+Cipher models anthropic
+```
+
+#### Flagg
+
+| Flagg                                   | Beskrivelse                                                         |
+| --------------------------------------- | ------------------------------------------------------------------- |
+| <nobr><code>{"--refresh"}</code></nobr> | Oppdater modellbufferen fra models.dev                              |
+| <nobr><code>{"--verbose"}</code></nobr> | Bruk mer detaljert modellutdata (inkluderer metadata som kostnader) |
+
+Bruk `--refresh`-flagget for å oppdatere den bufrede modelllisten. Dette er nyttig når nye modeller er lagt til en leverandør og du vil se dem i Cipher.
+
+```bash
+Cipher models --refresh
+```
+
+---
+
+### run
+
+Kjør Cipher i ikke-interaktiv modus ved å sende en melding direkte.
+
+```bash
+Cipher run [message..]
+```
+
+Dette er nyttig for skripting, automatisering eller når du vil ha et raskt svar uten å starte hele TUI. For eksempel.
+
+```bash "Cipher run"
+Cipher run Explain the use of context in Go
+```
+
+Du kan også koble til en kjørende `Cipher serve`-forekomst for å unngå MCP-serveres kaldstarttid ved hver kjøring:
+
+```bash
+# Start a headless server in one terminal
+Cipher serve
+
+# In another terminal, run commands that attach to it
+Cipher run --attach http://localhost:4096 "Explain async/await in JavaScript"
+```
+
+#### Flagg
+
+| Flagg                                    | Kort | Beskrivelse                                                                                        |
+| ---------------------------------------- | ---- | -------------------------------------------------------------------------------------------------- |
+| <nobr><code>{"--command"}</code></nobr>  |      | Kommandoen for å kjøre, bruk melding for args                                                      |
+| <nobr><code>{"--continue"}</code></nobr> | `-c` | Fortsett siste økt                                                                                 |
+| <nobr><code>{"--session"}</code></nobr>  | `-s` | Økt ID for å fortsette                                                                             |
+| <nobr><code>{"--fork"}</code></nobr>     |      | Forgren økten ved fortsettelse (bruk med `--continue` eller `--session`)                           |
+| <nobr><code>{"--share"}</code></nobr>    |      | Del økten                                                                                          |
+| <nobr><code>{"--model"}</code></nobr>    | `-m` | Modell å bruke i form av leverandør/modell                                                         |
+| <nobr><code>{"--agent"}</code></nobr>    |      | Agent å bruke                                                                                      |
+| <nobr><code>{"--file"}</code></nobr>     | `-f` | Fil(er) som skal legges ved meldingen                                                              |
+| <nobr><code>{"--format"}</code></nobr>   |      | Format: standard (formatert) eller json (rå JSON hendelser)                                        |
+| <nobr><code>{"--title"}</code></nobr>    |      | Tittel for økten (bruker avkortet ledetekst hvis ingen verdi er oppgitt)                           |
+| <nobr><code>{"--attach"}</code></nobr>   |      | Koble til en kjørende cipher-server (f.eks. http://localhost:4096)                               |
+| <nobr><code>{"--password"}</code></nobr> | `-p` | Passord for grunnleggende autentisering (standard: `CIPHER_SERVER_PASSWORD`)                     |
+| <nobr><code>{"--username"}</code></nobr> | `-u` | Brukernavn for grunnleggende autentisering (standard: `CIPHER_SERVER_USERNAME` eller `Cipher`) |
+| <nobr><code>{"--dir"}</code></nobr>      |      | Katalog å kjøre i, eller sti på fjernserveren ved tilkobling                                       |
+| <nobr><code>{"--variant"}</code></nobr>  |      | Modellvariant (leverandørspesifikk resonneringsinnsats)                                            |
+| <nobr><code>{"--thinking"}</code></nobr> |      | Vis tenkeblokker                                                                                   |
+| <nobr><code>{"--port"}</code></nobr>     |      | Port for den lokale serveren (standard til tilfeldig port)                                         |
+
+---
+
+### serve
+
+Start en headless cipher-server for API-tilgang. Sjekk ut [server-dokumentene](/docs/server) for hele HTTP-grensesnittet.
+
+```bash
+Cipher serve
+```
+
+Dette starter en HTTP-server som gir API tilgang til cipher-funksjonalitet uten TUI-grensesnittet. Sett `CIPHER_SERVER_PASSWORD` for å aktivere HTTP grunnleggende autentisering (brukernavn er standard til `Cipher`).
+
+#### Flagg
+
+| Flagg                                    | Beskrivelse                                        |
+| ---------------------------------------- | -------------------------------------------------- |
+| <nobr><code>{"--port"}</code></nobr>     | Port å lytte på                                    |
+| <nobr><code>{"--hostname"}</code></nobr> | Vertsnavn å lytte på                               |
+| <nobr><code>{"--mdns"}</code></nobr>     | Aktiver mDNS-oppdagelse                            |
+| <nobr><code>{"--cors"}</code></nobr>     | Ytterligere nettleseropprinnelse som tillater CORS |
+
+---
+
+### session
+
+Administrer cipher-økter.
+
+```bash
+Cipher session [command]
+```
+
+---
+
+#### list
+
+List opp alle cipher-økter.
+
+```bash
+Cipher session list
+```
+
+##### Flagg
+
+| Flagg                                     | Kort | Beskrivelse                              |
+| ----------------------------------------- | ---- | ---------------------------------------- |
+| <nobr><code>{"--max-count"}</code></nobr> | `-n` | Begrens til N siste økter                |
+| <nobr><code>{"--format"}</code></nobr>    |      | Utdataformat: tabell eller json (tabell) |
+
+---
+
+### stats
+
+Vis tokenbruk og kostnadsstatistikk for cipher-øktene dine.
+
+```bash
+Cipher stats
+```
+
+#### Flagg
+
+| Flagg                                   | Beskrivelse                                                                      |
+| --------------------------------------- | -------------------------------------------------------------------------------- |
+| <nobr><code>{"--days"}</code></nobr>    | Vis statistikk for de siste N dagene (hele tiden)                                |
+| <nobr><code>{"--tools"}</code></nobr>   | Antall verktøy som skal vises (alle)                                             |
+| <nobr><code>{"--models"}</code></nobr>  | Vis oversikt over modellbruk (skjult som standard). Gi et tall for å vise topp N |
+| <nobr><code>{"--project"}</code></nobr> | Filtrer etter prosjekt (alle prosjekter, tom streng: gjeldende prosjekt)         |
+
+---
+
+### export
+
+Eksporter øktdata som JSON.
+
+```bash
+Cipher export [sessionID]
+```
+
+Hvis du ikke gir en økt ID, blir du bedt om å velge fra tilgjengelige økter.
+
+---
+
+### import
+
+Importer øktdata fra en JSON-fil eller en Cipher share-URL.
+
+```bash
+Cipher import <file>
+```
+
+Du kan importere fra en lokal fil eller en Cipher share-URL.
+
+```bash
+Cipher import session.json
+Cipher import https://opncd.ai/s/abc123
+```
+
+---
+
+### web
+
+Start en headless cipher-server med et webgrensesnitt.
+
+```bash
+Cipher web
+```
+
+Dette starter en HTTP-server og åpner en nettleser for å få tilgang til Cipher via et nettgrensesnitt. Sett `CIPHER_SERVER_PASSWORD` for å aktivere HTTP grunnleggende autentisering (brukernavn er standard til `Cipher`).
+
+#### Flagg
+
+| Flagg                                    | Beskrivelse                                        |
+| ---------------------------------------- | -------------------------------------------------- |
+| <nobr><code>{"--port"}</code></nobr>     | Port å lytte på                                    |
+| <nobr><code>{"--hostname"}</code></nobr> | Vertsnavn å lytte på                               |
+| <nobr><code>{"--mdns"}</code></nobr>     | Aktiver mDNS-oppdagelse                            |
+| <nobr><code>{"--cors"}</code></nobr>     | Ytterligere nettleseropprinnelse som tillater CORS |
+
+---
+
+### acp
+
+Start en ACP (Agent Client Protocol) server.
+
+```bash
+Cipher acp
+```
+
+Denne kommandoen starter en ACP-server som kommuniserer via stdin/stdout ved å bruke nd-JSON.
+
+#### Flagg
+
+| Flagg                                    | Beskrivelse          |
+| ---------------------------------------- | -------------------- |
+| <nobr><code>{"--cwd"}</code></nobr>      | Arbeidskatalog       |
+| <nobr><code>{"--port"}</code></nobr>     | Port å lytte på      |
+| <nobr><code>{"--hostname"}</code></nobr> | Vertsnavn å lytte på |
+
+---
+
+### uninstall
+
+Avinstaller Cipher og fjern alle relaterte filer.
+
+```bash
+Cipher uninstall
+```
+
+#### Flagg
+
+| Flagg                                       | Kort | Beskrivelse                                   |
+| ------------------------------------------- | ---- | --------------------------------------------- |
+| <nobr><code>{"--keep-config"}</code></nobr> | `-c` | Behold konfigurasjonsfiler                    |
+| <nobr><code>{"--keep-data"}</code></nobr>   | `-d` | Behold øktdata og øyeblikksbilder             |
+| <nobr><code>{"--dry-run"}</code></nobr>     |      | Vis hva som ville blitt fjernet uten å fjerne |
+| <nobr><code>{"--force"}</code></nobr>       | `-f` | Hopp over bekreftelsesforespørsler            |
+
+---
+
+### upgrade
+
+Oppdaterer Cipher til siste versjon eller en spesifikk versjon.
+
+```bash
+Cipher upgrade [target]
+```
+
+For å oppgradere til siste versjon.
+
+```bash
+Cipher upgrade
+```
+
+For å oppgradere til en bestemt versjon.
+
+```bash
+Cipher upgrade v0.1.48
+```
+
+#### Flagg
+
+| Flagg                                  | Kort | Beskrivelse                                                    |
+| -------------------------------------- | ---- | -------------------------------------------------------------- |
+| <nobr><code>{"--method"}</code></nobr> | `-m` | Installasjonsmetoden som ble brukt: curl, npm, pnpm, bun, brew |
+
+---
+
+## Globale flagg
+
+Cipher CLI bruker følgende globale flagg.
+
+| Flagg                                      | Kort | Beskrivelse                         |
+| ------------------------------------------ | ---- | ----------------------------------- |
+| <nobr><code>{"--help"}</code></nobr>       | `-h` | Vis hjelp                           |
+| <nobr><code>{"--version"}</code></nobr>    | `-v` | Skriv ut versjonsnummer             |
+| <nobr><code>{"--print-logs"}</code></nobr> |      | Skriv ut logger til stderr          |
+| <nobr><code>{"--log-level"}</code></nobr>  |      | Loggnivå (DEBUG, INFO, WARN, ERROR) |
+
+---
+
+## Miljøvariabler
+
+Cipher kan konfigureres ved hjelp av miljøvariabler.
+
+| Variabel                              | Type   | Beskrivelse                                                           |
+| ------------------------------------- | ------ | --------------------------------------------------------------------- |
+| `CIPHER_AUTO_SHARE`                 | boolsk | Del økter automatisk                                                  |
+| `CIPHER_GIT_BASH_PATH`              | streng | Bane til Git Bash-kjørbar på Windows                                  |
+| `CIPHER_CONFIG`                     | streng | Bane til konfigurasjonsfil                                            |
+| `CIPHER_TUI_CONFIG`                 | streng | Bane til TUI-konfigurasjonsfil                                        |
+| `CIPHER_CONFIG_DIR`                 | streng | Bane til konfigurasjonskatalog                                        |
+| `CIPHER_CONFIG_CONTENT`             | streng | Innebygd json-konfigurasjonsinnhold                                   |
+| `CIPHER_DISABLE_AUTOUPDATE`         | boolsk | Deaktiver automatiske oppdateringskontroller                          |
+| `CIPHER_DISABLE_PRUNE`              | boolsk | Deaktiver beskjæring av gamle data                                    |
+| `CIPHER_DISABLE_TERMINAL_TITLE`     | boolsk | Deaktiver automatiske terminaltitteloppdateringer                     |
+| `CIPHER_PERMISSION`                 | streng | Innebygd json-tillatelseskonfigurasjon                                |
+| `CIPHER_DISABLE_DEFAULT_PLUGINS`    | boolsk | Deaktiver standard plugins                                            |
+| `CIPHER_DISABLE_LSP_DOWNLOAD`       | boolsk | Deaktiver automatiske LSP servernedlastinger                          |
+| `CIPHER_ENABLE_EXPERIMENTAL_MODELS` | boolsk | Aktiver eksperimentelle modeller                                      |
+| `CIPHER_DISABLE_AUTOCOMPACT`        | boolsk | Deaktiver automatisk kontekstkomprimering                             |
+| `CIPHER_DISABLE_CLAUDE_CODE`        | boolsk | Deaktiver lesing fra `.claude` (spørsmål + ferdigheter)               |
+| `CIPHER_DISABLE_CLAUDE_CODE_PROMPT` | boolsk | Deaktiver lesing `~/.claude/CLAUDE.md`                                |
+| `CIPHER_DISABLE_CLAUDE_CODE_SKILLS` | boolsk | Deaktiver innlasting av `.claude/skills`                              |
+| `CIPHER_DISABLE_MODELS_FETCH`       | boolsk | Deaktiver henting av modeller fra eksterne kilder                     |
+| `CIPHER_FAKE_VCS`                   | streng | Falsk VCS-leverandør for testformål                                   |
+| `CIPHER_CLIENT`                     | streng | Klientidentifikator (standard til `cli`)                              |
+| `CIPHER_ENABLE_EXA`                 | boolsk | Aktiver Exa-nettsøkeverktøy                                           |
+| `CIPHER_SERVER_PASSWORD`            | streng | Aktiver grunnleggende autentisering for `serve`/`web`                 |
+| `CIPHER_SERVER_USERNAME`            | streng | Overstyr grunnleggende autentiseringsbrukernavn (standard `Cipher`) |
+| `CIPHER_MODELS_URL`                 | streng | Egendefinert URL for henting av modellkonfigurasjon                   |
+
+---
+
+### Eksperimentelt
+
+Disse miljøvariablene muliggjør eksperimentelle funksjoner som kan endres eller fjernes.
+
+| Variabel                                        | Type   | Beskrivelse                                           |
+| ----------------------------------------------- | ------ | ----------------------------------------------------- |
+| `CIPHER_EXPERIMENTAL`                         | boolsk | Aktiver eksperimentelle funksjoner under samleflagget |
+| `CIPHER_EXPERIMENTAL_ICON_DISCOVERY`          | boolsk | Aktiver ikonoppdagelse                                |
+| `CIPHER_EXPERIMENTAL_DISABLE_COPY_ON_SELECT`  | boolsk | Deaktiver kopi ved valg i TUI                         |
+| `CIPHER_EXPERIMENTAL_BASH_DEFAULT_TIMEOUT_MS` | tall   | Standard tidsavbrudd for bash-kommandoer i ms         |
+| `CIPHER_EXPERIMENTAL_OUTPUT_TOKEN_MAX`        | tall   | Maks Output Tokens for LLM-svar                       |
+| `CIPHER_EXPERIMENTAL_FILEWATCHER`             | boolsk | Aktiver filovervåker for hele dir                     |
+| `CIPHER_EXPERIMENTAL_OXFMT`                   | boolsk | Aktiver oxfmt formatter                               |
+| `CIPHER_EXPERIMENTAL_LSP_TOOL`                | boolsk | Aktiver eksperimentelt LSP-verktøy                    |
+| `CIPHER_EXPERIMENTAL_DISABLE_FILEWATCHER`     | boolsk | Deaktiver filovervåking                               |
+| `CIPHER_EXPERIMENTAL_EXA`                     | boolsk | Aktiver eksperimentelle Exa-funksjoner                |
+| `CIPHER_EXPERIMENTAL_LSP_TY`                  | boolsk | Aktiver TY LSP for python-filer                       |
+| `CIPHER_EXPERIMENTAL_PLAN_MODE`               | boolsk | Aktiver planmodus                                     |
+| `CIPHER_EXPERIMENTAL_BACKGROUND_SUBAGENTS`    | boolsk | Aktiver bakgrunnsoppgaver for subagenter              |
+| `CIPHER_EXPERIMENTAL_EVENT_SYSTEM`            | boolsk | Aktiver eksperimentelt hendelsessystem                |
+| `CIPHER_EXPERIMENTAL_NATIVE_LLM`              | boolsk | Aktiver innebygd LLM-forespørselsvei                  |
+| `CIPHER_EXPERIMENTAL_PARALLEL`                | boolsk | Aktiver parallell kjøring av websøk                   |
+| `CIPHER_EXPERIMENTAL_SCOUT`                   | boolsk | Aktiver Scout-subagent                                |
+| `CIPHER_EXPERIMENTAL_WORKSPACES`              | boolsk | Aktiver arbeidsområde-støtte                          |

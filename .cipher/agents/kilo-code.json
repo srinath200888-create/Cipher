@@ -1,0 +1,7 @@
+{
+  "name": "kilo-code",
+  "description": "Lightweight terminal coding agent",
+  "version": "1.0.0",
+  "capabilities": ["fast edits", "minimal overhead", "focused refactoring"],
+  "context": "minimalistic CLI coding assistant for quick code transformations"
+}

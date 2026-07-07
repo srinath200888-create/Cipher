@@ -1,0 +1,24 @@
+{
+  "name": "cli-coding-agents",
+  "description": "Expertise in CLI-based coding agents and terminal-native development workflows",
+  "version": "1.0.0",
+  "commands": {
+    "analyze": "Analyze a codebase using CLI coding agents",
+    "refactor": "Refactor code with terminal-based AI tools",
+    "review": "Review code changes via CLI agents"
+  },
+  "context": {
+    "capabilities": [
+      "terminal-native development",
+      "REPL-driven coding",
+      "streaming diffs and patches",
+      "in-terminal code review"
+    ],
+    "tools": [
+      "hermes-agent",
+      "claw-code",
+      "gemini-cli",
+      "codex-cli"
+    ]
+  }
+}

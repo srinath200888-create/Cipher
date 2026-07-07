@@ -1,0 +1,7 @@
+{
+  "name": "hermes-agent",
+  "description": "CLI-native coding agent with streaming diff output",
+  "version": "1.0.0",
+  "capabilities": ["streaming diffs", "REPL mode", "multi-file editing"],
+  "context": "terminal-first code generation and refactoring agent"
+}

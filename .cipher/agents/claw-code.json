@@ -1,0 +1,7 @@
+{
+  "name": "claw-code",
+  "description": "Terminal-based coding agent focused on file-level operations",
+  "version": "1.0.0",
+  "capabilities": ["file-aware edits", "project-wide refactoring", "test generation"],
+  "context": "autonomous code modification across file boundaries"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "gemini-cli",
+  "description": "Google Gemini-powered CLI coding assistant",
+  "version": "1.0.0",
+  "capabilities": ["multimodal analysis", "code explanation", "debugging"],
+  "context": "AI pair programmer powered by Gemini models"
+}

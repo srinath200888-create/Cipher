@@ -1,0 +1,7 @@
+{
+  "name": "goose",
+  "description": "Autonomous coding agent with shell and editor access",
+  "version": "1.0.0",
+  "capabilities": ["shell execution", "file editing", "extension integration"],
+  "context": "agentic coding assistant with broad tool access"
+}
