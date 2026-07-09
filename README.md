@@ -140,3 +140,4 @@ Double-click `Cipher.bat` on your desktop to see the logo.
 
 - [Docs](https://opencode.ai/docs) (Cipher shares the opencode docs format)
 - [GitHub](https://github.com/srinath200888-create/Cipher)
+
